@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
 
 from retriever import retrieve
@@ -67,15 +67,42 @@ class QueryResponse(BaseModel):
 # ---- API ----
 @app.post("/query", response_model=QueryResponse)
 def query(req: QueryRequest) -> QueryResponse:
+    # 输入校验：空问题直接 400
+    if not req.question or not req.question.strip():
+        return JSONResponse(
+            status_code=400,
+            content={"error": "问题不能为空"},
+        )
+
     t0 = time.time()
 
     # 检索
-    chunks = retrieve(req.question, top_k=5)
+    try:
+        chunks = retrieve(req.question, top_k=5)
+    except FileNotFoundError as e:
+        # 知识库未入库：明确告诉调用方去跑 ingest
+        return JSONResponse(
+            status_code=503,
+            content={"error": f"知识库未初始化: {e}"},
+        )
+    except Exception as e:
+        return JSONResponse(
+            status_code=500,
+            content={"error": f"检索失败: {e}"},
+        )
+
     sources = list({c.source_doc for c in chunks})
 
     # 生成
     contexts = [(c.text, c.source_doc) for c in chunks]
-    answer = generate(req.question, contexts)
+    try:
+        answer = generate(req.question, contexts)
+    except Exception as e:
+        # LLM 重试已耗尽（网络/超时/5xx 重试 3 次后仍失败）
+        return JSONResponse(
+            status_code=502,
+            content={"error": f"LLM 生成失败（重试已耗尽）: {e}"},
+        )
 
     elapsed_ms = int((time.time() - t0) * 1000)
 
@@ -200,7 +227,7 @@ async function ask(q) {
             body: JSON.stringify({question})
         });
         const data = await resp.json();
-        if (!resp.ok) throw new Error(data.detail || '请求失败');
+        if (!resp.ok) throw new Error(data.error || data.detail || '请求失败');
 
         document.getElementById('answer').textContent = data.answer;
         document.getElementById('sources').innerHTML = '<strong>来源文档：</strong>' + data.sources.join('、');

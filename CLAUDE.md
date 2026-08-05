@@ -16,7 +16,6 @@ rag-agent/
 ├── ingest.py             # 文档加载、分块、入库
 ├── retriever.py          # 检索逻辑（向量检索 + 可选重排）
 ├── generator.py          # 答案生成（prompt 模板 + LLM 调用）
-├── config.py             # 配置管理（环境变量、模型参数）
 ├── data/documents/       # 原始文档（MD/TXT/PDF）
 ├── eval/                 # 评测脚本与评测集
 ├── docs/                 # 项目文档
@@ -40,6 +39,6 @@ rag-agent/
 
 ## 环境变量
 - `DEEPSEEK_API_KEY` — DeepSeek API 密钥
-- `DEEPSEEK_BASE_URL` — API 地址（默认 https://api.deepseek.com/v1）
+- `DEEPSEEK_BASE_URL` — API 地址（默认 https://api.deepseek.com）
 - `EMBED_MODEL` — embedding 模型名（默认 BAAI/bge-small-zh-v1.5）
-- `LLM_MODEL` — LLM 模型名（默认 deepseek-chat）
+- `LLM_MODEL` — LLM 模型名（默认 deepseek-v4-pro）

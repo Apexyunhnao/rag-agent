@@ -46,6 +46,7 @@ def _get_client() -> OpenAI:
         _client = OpenAI(
             api_key=os.environ["DEEPSEEK_API_KEY"],
             base_url=os.environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com"),
+            timeout=30.0,  # LLM 调用超时兜底，避免 API 挂起拖死请求
         )
     return _client
 
