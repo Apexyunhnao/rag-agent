@@ -1,0 +1,170 @@
+[
+  {
+    "id": "q01",
+    "question": "年假能休几天？",
+    "answer_keywords": ["5天", "满1年", "工龄5~10年", "10天", "10年以上", "15天"],
+    "source_doc": "员工手册.md",
+    "type": "事实型"
+  },
+  {
+    "id": "q02",
+    "question": "请病假需要什么证明？",
+    "answer_keywords": ["二级甲等", "诊断证明", "病假条", "3天", "人力资源部"],
+    "source_doc": "员工手册.md",
+    "type": "条件型"
+  },
+  {
+    "id": "q03",
+    "question": "加班怎么申请调休？",
+    "answer_keywords": ["OA系统", "加班申请单", "30天内", "1:1比例", "调休"],
+    "source_doc": "员工手册.md",
+    "type": "流程型"
+  },
+  {
+    "id": "q04",
+    "question": "报销发票抬头写什么？",
+    "answer_keywords": ["XX科技有限公司", "91440101MA5CXXXXX"],
+    "source_doc": "员工手册.md",
+    "type": "事实型"
+  },
+  {
+    "id": "q05",
+    "question": "国庆加班工资怎么算？",
+    "answer_keywords": ["300%", "法定节假日", "基本工资", "不可调休"],
+    "source_doc": "员工手册.md",
+    "type": "条件型"
+  },
+  {
+    "id": "q06",
+    "question": "VPN连不上怎么办？",
+    "answer_keywords": ["443端口", "防火墙", "账号过期", "180天", "AnyConnect", "重装"],
+    "source_doc": "IT常见问题FAQ.md",
+    "type": "流程型"
+  },
+  {
+    "id": "q07",
+    "question": "怎么在公司电脑上配邮箱？",
+    "answer_keywords": ["Outlook", "Exchange", "exchange.company.cn", "域账号"],
+    "source_doc": "IT常见问题FAQ.md",
+    "type": "流程型"
+  },
+  {
+    "id": "q08",
+    "question": "打印机报错11-001是什么意思？",
+    "answer_keywords": ["纸盘缺纸", "加纸", "继续"],
+    "source_doc": "IT常见问题FAQ.md",
+    "type": "事实型"
+  },
+  {
+    "id": "q09",
+    "question": "公司办公WiFi密码是多少？",
+    "answer_keywords": ["Company-Office", "Welcome@2024", "WPA2-Enterprise"],
+    "source_doc": "IT常见问题FAQ.md",
+    "type": "事实型"
+  },
+  {
+    "id": "q10",
+    "question": "账号被锁定了怎么解锁？",
+    "answer_keywords": ["5次", "30分钟", "IT服务台", "分机8888", "重置密码"],
+    "source_doc": "IT常见问题FAQ.md",
+    "type": "流程型"
+  },
+  {
+    "id": "q11",
+    "question": "公司密码要求有哪些？",
+    "answer_keywords": ["8位", "大写字母", "小写字母", "数字", "特殊字符"],
+    "source_doc": "信息安全规范.md",
+    "type": "事实型"
+  },
+  {
+    "id": "q12",
+    "question": "公司数据分几个等级？",
+    "answer_keywords": ["机密级", "内部级", "公开级", "财务报表", "规章制度"],
+    "source_doc": "信息安全规范.md",
+    "type": "事实型"
+  },
+  {
+    "id": "q13",
+    "question": "能用自己U盘拷文件吗？",
+    "answer_keywords": ["禁止", "未授权", "USB存储设备", "拦截", "加密U盘", "申请"],
+    "source_doc": "信息安全规范.md",
+    "type": "条件型"
+  },
+  {
+    "id": "q14",
+    "question": "在家办公需要注意什么安全事项？",
+    "answer_keywords": ["公司配发笔记本", "VPN", "公共WiFi", "锁屏", "Win+L"],
+    "source_doc": "信息安全规范.md",
+    "type": "流程型"
+  },
+  {
+    "id": "q15",
+    "question": "收到可疑邮件让我点链接输入密码，怎么办？",
+    "answer_keywords": ["不点击", "不回复", "删除", "钓鱼邮件", "admin@company.cn"],
+    "source_doc": "信息安全规范.md",
+    "type": "流程型"
+  },
+  {
+    "id": "q16",
+    "question": "入职第一天需要带什么材料？",
+    "answer_keywords": ["身份证", "学历学位证书", "一寸白底免冠照片", "体检报告", "离职证明"],
+    "source_doc": "新人入职指南.md",
+    "type": "流程型"
+  },
+  {
+    "id": "q17",
+    "question": "试用期多久？能提前转正吗？",
+    "answer_keywords": ["3个月", "提前转正", "1个月", "考核目标", "主管推荐"],
+    "source_doc": "新人入职指南.md",
+    "type": "条件型"
+  },
+  {
+    "id": "q18",
+    "question": "工牌丢了怎么补办？",
+    "answer_keywords": ["行政部", "挂失", "30元", "工本费", "30分钟"],
+    "source_doc": "新人入职指南.md",
+    "type": "流程型"
+  },
+  {
+    "id": "q19",
+    "question": "入职第一天几点下班？",
+    "answer_keywords": ["18:00", "IT安全答题", "账号权限"],
+    "source_doc": "新人入职指南.md",
+    "type": "事实型"
+  },
+  {
+    "id": "q20",
+    "question": "绩效考核分哪几个等级？",
+    "answer_keywords": ["S级", "A级", "B级", "C级", "卓越", "优秀", "合格", "待改进"],
+    "source_doc": "绩效考核制度.md",
+    "type": "事实型"
+  },
+  {
+    "id": "q21",
+    "question": "考核结果不满意怎么申诉？",
+    "answer_keywords": ["5个工作日", "OA系统", "绩效申诉", "评审小组", "HR绩效专员", "最终结果"],
+    "source_doc": "绩效考核制度.md",
+    "type": "流程型"
+  },
+  {
+    "id": "q22",
+    "question": "连续两个季度C级会怎样？",
+    "answer_keywords": ["PIP", "绩效改进计划", "2个月", "B级", "解除劳动合同"],
+    "source_doc": "绩效考核制度.md",
+    "type": "条件型"
+  },
+  {
+    "id": "q23",
+    "question": "S级绩效考核要达到多少分？",
+    "answer_keywords": ["90分", "100分", "10%", "部门总监推荐", "分管副总审批"],
+    "source_doc": "绩效考核制度.md",
+    "type": "条件型"
+  },
+  {
+    "id": "q24",
+    "question": "差旅住宿能报销多少？",
+    "answer_keywords": ["一线城市", "400元", "280元", "北上广深"],
+    "source_doc": "员工手册.md",
+    "type": "事实型"
+  }
+]
