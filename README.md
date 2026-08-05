@@ -101,6 +101,11 @@ python query_pipeline.py
 python eval/run_eval.py
 ```
 
+三项指标口径：
+- **检索命中率**：Top-5 片段中是否至少有一条来自目标文档（`chunk.source_doc == 用例.source_doc`）
+- **回答准确率**：回答中至少命中 `answer_keywords` 里 1 个关键词（忽略空格、大小写不敏感）
+- **来源正确率**：回答末尾 `[来源: xxx]` 与目标文档名是否一致
+
 ## 技术栈
 
 | 组件 | 选型 | 说明 |

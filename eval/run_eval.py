@@ -54,10 +54,14 @@ def evaluate_one(case: dict) -> dict:
     # 检索
     chunks = retrieve(question, top_k=5)
 
-    # 生成
+    # 生成（带兜底——generate 内部已有指数退避重试，此处捕获重试耗尽的情况）
     contexts = [(c.text, c.source_doc) for c in chunks]
     t0 = time.time()
-    answer = generate(question, contexts)
+    try:
+        answer = generate(question, contexts)
+    except Exception as e:
+        answer = f"[生成失败: {e}]"
+        print(f"    !! {qid} LLM 调用失败（重试已耗尽）: {e}")
     elapsed = round(time.time() - t0, 2)
 
     # 三项判定

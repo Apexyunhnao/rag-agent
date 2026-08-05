@@ -29,7 +29,7 @@ def ingest() -> None:
         print(f"错误：文档目录不存在 — {docs_dir}")
         sys.exit(1)
 
-    reader = SimpleDirectoryReader(input_dir=str(docs_dir), required_exts=[".md"])
+    reader = SimpleDirectoryReader(input_dir=str(docs_dir), required_exts=[".md", ".txt", ".pdf"])
     documents = reader.load_data()
     print(f"读取到 {len(documents)} 份文档\n")
 
@@ -68,7 +68,10 @@ def ingest() -> None:
         chroma_client.delete_collection("doc_chunks")
     except Exception:
         pass
-    chroma_collection = chroma_client.create_collection("doc_chunks")
+    chroma_collection = chroma_client.create_collection(
+        "doc_chunks",
+        metadata={"hnsw:space": "cosine"},  # 明确使用余弦距离，与 retriever 的 score 换算一致
+    )
     vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
 
     storage_context = StorageContext.from_defaults(vector_store=vector_store)
