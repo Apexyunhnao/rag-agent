@@ -1,0 +1,183 @@
+[
+  {
+    "id": "R02",
+    "question": "哪些商品不能退货",
+    "answer_keywords": [
+      "食品",
+      "内衣",
+      "定制",
+      "不支持退货"
+    ],
+    "source_doc": "退货政策.md",
+    "type": "事实型"
+  },
+  {
+    "id": "R03",
+    "question": "退货的运费谁出",
+    "answer_keywords": [
+      "买家承担",
+      "质量问题",
+      "卖家承担"
+    ],
+    "source_doc": "退货政策.md",
+    "type": "条件型"
+  },
+  {
+    "id": "R05",
+    "question": "超过7天还能退货吗",
+    "answer_keywords": [
+      "7天",
+      "无理由",
+      "特殊情况"
+    ],
+    "source_doc": "退货政策.md",
+    "type": "条件型"
+  },
+  {
+    "id": "R01",
+    "question": "退货需要什么条件",
+    "answer_keywords": [
+      "7天",
+      "签收",
+      "包装完整",
+      "配件齐全"
+    ],
+    "source_doc": "退货政策.md",
+    "type": "事实型"
+  },
+  {
+    "id": "R08",
+    "question": "退款退到哪里",
+    "answer_keywords": [
+      "原支付",
+      "账户",
+      "原路"
+    ],
+    "source_doc": "退款政策.md",
+    "type": "事实型"
+  },
+  {
+    "id": "R06",
+    "question": "退款多久到账",
+    "answer_keywords": [
+      "3-7",
+      "工作日",
+      "原路退回"
+    ],
+    "source_doc": "退款政策.md",
+    "type": "事实型"
+  },
+  {
+    "id": "R10",
+    "question": "退款申请后怎么查进度",
+    "answer_keywords": [
+      "订单详情",
+      "退款状态",
+      "客服"
+    ],
+    "source_doc": "退款政策.md",
+    "type": "流程型"
+  },
+  {
+    "id": "R07",
+    "question": "买的商品降价了能退差价吗",
+    "answer_keywords": [
+      "7天",
+      "降价",
+      "差价",
+      "1-3个工作日"
+    ],
+    "source_doc": "退款政策.md",
+    "type": "条件型"
+  },
+  {
+    "id": "R12",
+    "question": "换货要多久能收到新的",
+    "answer_keywords": [
+      "1-3",
+      "工作日",
+      "收到退回"
+    ],
+    "source_doc": "换货政策.md",
+    "type": "事实型"
+  },
+  {
+    "id": "R13",
+    "question": "换货的运费谁承担",
+    "answer_keywords": [
+      "质量问题",
+      "卖家",
+      "个人原因",
+      "买家"
+    ],
+    "source_doc": "换货政策.md",
+    "type": "条件型"
+  },
+  {
+    "id": "R11",
+    "question": "换货需要什么条件",
+    "answer_keywords": [
+      "15天",
+      "签收",
+      "尺码不符",
+      "瑕疵"
+    ],
+    "source_doc": "换货政策.md",
+    "type": "事实型"
+  },
+  {
+    "id": "R15",
+    "question": "颜色发错了能换吗",
+    "answer_keywords": [
+      "换货",
+      "颜色发错",
+      "申请"
+    ],
+    "source_doc": "换货政策.md",
+    "type": "事实型"
+  },
+  {
+    "id": "R18",
+    "question": "偏远地区要多久送到",
+    "answer_keywords": [
+      "5-7",
+      "工作日",
+      "偏远"
+    ],
+    "source_doc": "物流配送政策.md",
+    "type": "事实型"
+  },
+  {
+    "id": "R19",
+    "question": "快递一直没到怎么查",
+    "answer_keywords": [
+      "运单号",
+      "客服",
+      "物流"
+    ],
+    "source_doc": "物流配送政策.md",
+    "type": "流程型"
+  },
+  {
+    "id": "R20",
+    "question": "能否指定快递公司配送",
+    "answer_keywords": [
+      "默认",
+      "合作",
+      "指定"
+    ],
+    "source_doc": "物流配送政策.md",
+    "type": "条件型"
+  },
+  {
+    "id": "R16",
+    "question": "下单后多久能发货",
+    "answer_keywords": [
+      "24小时",
+      "现货",
+      "1-3个工作日"
+    ],
+    "source_doc": "物流配送政策.md",
+    "type": "事实型"
+  }
+]

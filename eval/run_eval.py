@@ -35,13 +35,11 @@ def check_answer_accuracy(answer: str, keywords: list[str]) -> bool:
 
 
 def check_source_correct(answer: str, source_doc: str) -> bool:
-    """回答末尾的 [来源: xxx] 是否与 source_doc 一致。"""
-    # 匹配末尾的 [来源: ...] 模式
-    match = re.search(r"\[来源[：:]\s*([^\]]+)\]", answer)
-    if not match:
+    """回答中的任一 [来源: xxx] 是否与 source_doc 一致。"""
+    cited_docs = re.findall(r"\[来源[：:]\s*([^\]]+)\]", answer)
+    if not cited_docs:
         return False
-    cited = match.group(1).strip()
-    return cited == source_doc
+    return any(d.strip() == source_doc for d in cited_docs)
 
 
 def evaluate_one(case: dict) -> dict:
@@ -159,6 +157,17 @@ def print_report(results: list[dict]) -> None:
 def main() -> None:
     # 加载测试用例
     cases_path = Path(__file__).resolve().parent / "test_cases.json"
+
+    # 支持 --holdout 参数
+    if "--holdout" in sys.argv:
+        holdout_path = Path(__file__).resolve().parent / "holdout_cases.json"
+        if holdout_path.exists():
+            cases_path = holdout_path
+            print(f"使用留出集: {holdout_path.name}")
+        else:
+            print("留出集不存在，请先运行 split_holdout.py")
+            return
+
     with open(cases_path, "r", encoding="utf-8") as f:
         cases = json.load(f)
 

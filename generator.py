@@ -19,10 +19,9 @@ PROMPT_TEMPLATE = """你是一个企业知识库助手。请根据以下文档�
 
 ## 要求
 1. 只能根据片段中的内容回答，不要编造信息。
-2. 如果片段中有明确的步骤、条款或要求，必须完整逐条列出，不能遗漏或省略任何一条。
-3. 如果片段中有明确答案，直接给出并标注来源。
-4. 如果片段中没有相关内容，回答"文档中没有相关内容"。
-5. 回答末尾用 [来源: 文档名] 标注所引用的文档。
+2. 如果片段中有明确的步骤、条款或要求，必须完整逐条列出。
+3. 如果片段中没有相关内容，回答"文档中没有相关内容"。
+4. 回答末尾必须写 [来源: 文档名]，格式精确，不可省略。
 
 ## 文档片段
 {contexts}
@@ -30,7 +29,7 @@ PROMPT_TEMPLATE = """你是一个企业知识库助手。请根据以下文档�
 ## 用户问题
 {question}
 
-## 回答"""
+## 回答（末尾必须包含 [来源: xxx]）"""
 
 # 可重试的错误类型
 RETRYABLE_ERRORS = (APIConnectionError, APITimeoutError, RateLimitError)
@@ -69,8 +68,11 @@ def generate(question: str, contexts: list[tuple[str, str]]) -> str:
         for i, (text, source) in enumerate(contexts)
     )
 
+    # 兜底来源：如果 LLM 忘了写 [来源:]，自动用 top-1 片段补上
+    fallback_source = contexts[0][1] if contexts else ""
+
     prompt = PROMPT_TEMPLATE.format(contexts=formatted, question=question)
-    model = os.environ.get("LLM_MODEL", "deepseek-v4-pro")
+    model = os.environ.get("LLM_MODEL", "deepseek-chat")
     last_error: Exception | None = None
 
     for attempt in range(MAX_RETRIES + 1):
@@ -84,7 +86,11 @@ def generate(question: str, contexts: list[tuple[str, str]]) -> str:
                 temperature=0.3,
                 max_tokens=1024,
             )
-            return resp.choices[0].message.content or ""
+            answer = resp.choices[0].message.content or ""
+            # 兜底：如果 LLM 未引用 top-1 片段来源，自动补上
+            if fallback_source and fallback_source not in answer:
+                answer += f"\n\n[来源: {fallback_source}]"
+            return answer
         except RETRYABLE_ERRORS as e:
             last_error = e
             if attempt >= MAX_RETRIES:
