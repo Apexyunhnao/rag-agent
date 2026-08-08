@@ -124,6 +124,12 @@ def query(req: QueryRequest) -> QueryResponse:
     )
 
 
+@app.get("/health")
+def health() -> dict:
+    """健康检查。"""
+    return {"healthy": True, "service": "rag-agent"}
+
+
 # ---- Web 界面 ----
 @app.get("/", response_class=HTMLResponse)
 def index() -> str:
