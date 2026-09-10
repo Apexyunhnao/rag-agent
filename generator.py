@@ -72,7 +72,7 @@ def generate(question: str, contexts: list[tuple[str, str]]) -> str:
     fallback_source = contexts[0][1] if contexts else ""
 
     prompt = PROMPT_TEMPLATE.format(contexts=formatted, question=question)
-    model = os.environ.get("LLM_MODEL", "deepseek-v4-pro")
+    model = os.environ.get("LLM_MODEL", "deepseek-chat")
     last_error: Exception | None = None
 
     for attempt in range(MAX_RETRIES + 1):
