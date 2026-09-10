@@ -96,7 +96,7 @@ def retrieve(query: str, top_k: int = 5) -> list[Chunk]:
 
 if __name__ == "__main__":
     # 快速自测
-    chunks = retrieve("年假能休几天", top_k=3)
+    chunks = retrieve("退货需要什么条件", top_k=3)
     for c in chunks:
         print(f"[{c.source_doc}] score={c.score:.4f}")
         print(f"  {c.text[:120]}...")

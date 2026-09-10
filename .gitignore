@@ -29,3 +29,5 @@ venv/
 
 # HF 模型缓存
 *.cache/
+# 面试准备文档不入库（只留本地 E:\面试准备\）
+docs/interview-prep.md

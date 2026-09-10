@@ -183,18 +183,18 @@ def index() -> str:
 <body>
 <div class="container">
     <h1>RAG Agent</h1>
-    <p class="subtitle">企业知识库问答 — 覆盖员工手册、IT FAQ、信息安全、入职指南、绩效考核</p>
+    <p class="subtitle">客服售后政策问答 — 覆盖退货、退款、换货、物流配送</p>
 
     <div class="preset">
-        <button onclick="ask('年假能休几天')">年假能休几天</button>
-        <button onclick="ask('VPN连不上怎么办')">VPN连不上怎么办</button>
-        <button onclick="ask('报销需要什么材料')">报销需要什么材料</button>
-        <button onclick="ask('试用期多久')">试用期多久</button>
-        <button onclick="ask('绩效考核怎么申诉')">绩效考核怎么申诉</button>
+        <button onclick="ask('退货需要什么条件')">退货需要什么条件</button>
+        <button onclick="ask('退款多久到账')">退款多久到账</button>
+        <button onclick="ask('换货的运费谁承担')">换货的运费谁承担</button>
+        <button onclick="ask('下单后多久能发货')">下单后多久能发货</button>
+        <button onclick="ask('偏远地区要多久送到')">偏远地区要多久送到</button>
     </div>
 
     <div class="input-group">
-        <input id="question" type="text" placeholder="输入你的问题，如：年假能休几天..." autofocus
+        <input id="question" type="text" placeholder="输入你的问题，如：退货需要什么条件..." autofocus
                onkeydown="if(event.key==='Enter')ask()">
         <button id="askBtn" onclick="ask()">提问</button>
     </div>

@@ -40,9 +40,9 @@ def print_result(result: dict) -> None:
 
 def main() -> None:
     test_questions = [
-        "年假能休几天",
-        "VPN连不上怎么办",
-        "报销需要什么材料",
+        "退货需要什么条件",
+        "退款多久到账",
+        "换货的运费谁承担",
     ]
 
     for q in test_questions:

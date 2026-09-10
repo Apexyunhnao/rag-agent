@@ -15,7 +15,7 @@ from openai import OpenAI, APIError, APIConnectionError, APITimeoutError, RateLi
 
 _client: OpenAI | None = None
 
-PROMPT_TEMPLATE = """你是一个企业知识库助手。请根据以下文档片段回答用户问题。
+PROMPT_TEMPLATE = """你是一个电商售后政策助手。请根据以下文档片段回答用户问题。
 
 ## 要求
 1. 只能根据片段中的内容回答，不要编造信息。
@@ -72,7 +72,7 @@ def generate(question: str, contexts: list[tuple[str, str]]) -> str:
     fallback_source = contexts[0][1] if contexts else ""
 
     prompt = PROMPT_TEMPLATE.format(contexts=formatted, question=question)
-    model = os.environ.get("LLM_MODEL", "deepseek-chat")
+    model = os.environ.get("LLM_MODEL", "deepseek-v4-pro")
     last_error: Exception | None = None
 
     for attempt in range(MAX_RETRIES + 1):
@@ -80,7 +80,7 @@ def generate(question: str, contexts: list[tuple[str, str]]) -> str:
             resp = client.chat.completions.create(
                 model=model,
                 messages=[
-                    {"role": "system", "content": "你是一个严谨的企业知识库助手。"},
+                    {"role": "system", "content": "你是一个严谨的电商售后政策助手。"},
                     {"role": "user", "content": prompt},
                 ],
                 temperature=0.3,
@@ -115,10 +115,10 @@ def generate(question: str, contexts: list[tuple[str, str]]) -> str:
 
 if __name__ == "__main__":
     answer = generate(
-        "年假能休几天？",
+        "退货需要什么条件？",
         [
-            ("入职满1年的员工享有带薪年假5天。工龄5~10年者年假10天。", "员工手册.md"),
-            ("年假以自然年为单位计算，未休完可顺延至次年3月31日。", "员工手册.md"),
+            ("自签收之日起 7 天内可申请退货。商品必须保持原包装完整、配件齐全、未经使用。", "退货政策.md"),
+            ("特殊商品（食品、内衣、定制商品）不支持退货。", "退货政策.md"),
         ],
     )
     print(answer)

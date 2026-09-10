@@ -17,7 +17,7 @@
 
 【P1-1】README 注明评估口径：回答准确率=至少命中 1 个关键词；来源正确率=匹配回答中第一个 [来源:xxx] 且等于目标文档。
 
-【P1-2】requirements.md 修正：'选 10 个问题评测'改为'全部 24 条评测'。
+【P1-2】requirements.md 修正：'选 10 个问题评测'改为'全部 20 条评测'。
 
 【P1-3】eval/results.json 从 .gitignore 移除（评估结果应进仓库，和项目一一致），保留当前结果文件。
 
@@ -29,4 +29,4 @@
 - [ ] ingest 支持 md/txt/pdf
 - [ ] README/requirements.md 口径注明、文档一致
 - [ ] eval/results.json 在仓库里（.gitignore 已移除）
-- [ ] 重跑 eval/run_eval.py，指标不低于 100%/91.7%
+- [ ] 重跑 eval/run_eval.py，指标不低于 100%/90%（20 条全量）
