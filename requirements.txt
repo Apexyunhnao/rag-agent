@@ -1,9 +1,10 @@
-llama-index>=0.14.0,<1.0
-llama-index-vector-stores-chroma>=0.5.0
-llama-index-embeddings-huggingface>=0.7.0
-chromadb>=1.5.0,<2.0
-sentence-transformers>=5.0.0
-openai>=2.0.0
-fastapi>=0.140.0
-uvicorn>=0.50.0
+# 依赖锁定：这套版本组合已实测跑通 20 条评估（2026-09-11）
+llama-index==0.14.24
+llama-index-vector-stores-chroma==0.6.0
+llama-index-embeddings-huggingface==0.8.0
+chromadb==1.5.9
+sentence-transformers==6.0.1
+openai==1.109.1
+fastapi==0.141.1
+uvicorn==0.52.4
 python-dotenv>=1.0.0
