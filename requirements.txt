@@ -1,0 +1,30 @@
+# 直接依赖清单 —— 只列仓库代码里直接 import 的顶层包（外加启动命令需要的 uvicorn）。
+# 完整可复现的版本锁定（含全部传递依赖）见同目录 requirements.lock.txt（uv pip compile 生成，勿手改）。
+#
+# 版本口径（2026-09-16 定）：**精确钉死在本机实跑环境（Python 3.10 全局）实测通过的版本** ——
+#   README / METRICS 里的评估数字就是在这一套版本上跑出来的，锁文件要对齐它，而不是顺手升级。
+#   基准解释器：Python 3.11（本套版本已在 3.11 下冷安装 + 跑通测试与评估）。
+#
+# 为什么重写（2026-09-16）：
+#   ① 旧清单**漏了认证依赖 PyJWT** —— auth.py `import jwt`，冷安装起不来；
+#   ② 旧清单钉的 llama-index==0.14.24 / sentence-transformers==6.0.1 与实跑环境
+#      （0.14.23 / 5.6.1）不一致 —— 清单从来没被真正当作安装依据用过。
+
+llama-index==0.14.23
+llama-index-vector-stores-chroma==0.5.5
+llama-index-embeddings-huggingface==0.7.0
+chromadb==1.5.9
+sentence-transformers==5.6.1
+
+openai==2.52.0
+
+fastapi==0.141.1
+uvicorn==0.52.1
+pydantic==2.13.4
+python-dotenv==1.2.2
+
+PyJWT==2.14.0
+
+# ── 关键传递依赖：显式钉死以对齐实跑环境（sentence-transformers 会拉 torch；
+#    torch 版本会影响嵌入数值，必须与出评估数字时一致）──
+torch==2.13.0

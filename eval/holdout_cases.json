@@ -1,0 +1,50 @@
+[
+  {
+    "id": "R04",
+    "question": "退货流程怎么走",
+    "answer_keywords": [
+      "线上申请",
+      "审核",
+      "退回",
+      "验货",
+      "退款"
+    ],
+    "source_doc": "退货政策.md",
+    "type": "流程型"
+  },
+  {
+    "id": "R09",
+    "question": "退货退款和差价退款有什么区别",
+    "answer_keywords": [
+      "退货退款",
+      "3-7",
+      "差价退款",
+      "1-3"
+    ],
+    "source_doc": "退款政策.md",
+    "type": "条件型"
+  },
+  {
+    "id": "R14",
+    "question": "换货和退货有什么区别",
+    "answer_keywords": [
+      "退货",
+      "退款",
+      "换货",
+      "新品"
+    ],
+    "source_doc": "换货政策.md",
+    "type": "条件型"
+  },
+  {
+    "id": "R17",
+    "question": "预售商品什么时候发",
+    "answer_keywords": [
+      "7-15天",
+      "预售",
+      "标注"
+    ],
+    "source_doc": "物流配送政策.md",
+    "type": "事实型"
+  }
+]
